@@ -2,7 +2,7 @@
 
 ### 📋 Requirements
 
-- [ ] 3 git commits  
+- [x] 3 git commits  
 - [ ] Original  
 - [ ] Bigger/complex  
 - [ ] PostgreSQL with Active Storage  
