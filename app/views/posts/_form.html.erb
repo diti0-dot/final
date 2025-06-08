@@ -1,0 +1,42 @@
+<%= form_with(model: post, data: { turbo_frame: "_top" }, html: { class: "needs-validation", novalidate: true }) do |form| %>
+  <% if post.errors.any? %>
+    <div class="alert alert-danger mb-4">
+      <h2 class="h4"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul class="mb-0">
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", required: true %>
+    <div class="invalid-feedback">
+      Please provide a title.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, class: "form-control", rows: 4, required: true %>
+    <div class="invalid-feedback">
+      Please provide content.
+    </div>
+  </div>
+
+  
+  <div class="mb-3">
+    <%= form.label :post_pic, class: "form-label" %>
+    <%= form.file_field :post_pic, class: "form-control", rows: 4, required: true %>
+    <div class="invalid-feedback">
+      Please provide content.
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", posts_path, class: "btn btn-outline-secondary ms-2" %>
+  </div>
+<% end %>

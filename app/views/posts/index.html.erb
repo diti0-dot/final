@@ -1,0 +1,11 @@
+
+
+<%= turbo_frame_tag "new_post" %>
+
+<%= turbo_stream_from "posts" %>
+
+ <%= turbo_frame_tag "posts" do %>
+ <%= render partial: "post", collection: @posts, as: :post %>
+  <% end %>
+
+  

@@ -1,0 +1,23 @@
+<%= turbo_frame_tag post do %>
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title h4"><%= post.title %></h2>
+      <p class="card-text text-muted"><%= post.body %></p>
+      
+      <div class="d-flex gap-2 mt-3">
+        <%= link_to "Edit", edit_post_path(post), 
+                    class: "btn btn-sm btn-outline-primary",
+                    data: { turbo_frame: dom_id(post) } %>
+                    
+        <%= button_to "Delete", post, 
+                     method: :delete, 
+                     class: "btn btn-sm btn-outline-danger",
+                     form: { data: { turbo_confirm: "Are you sure?" } } %>
+      </div>
+    </div>
+    
+    <div class="card-footer bg-transparent text-muted small">
+      <%= time_ago_in_words(post.created_at) %> ago
+    </div>
+  </div>
+<% end %>
